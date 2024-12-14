@@ -8,6 +8,7 @@ def lambda_handler(event,context):
     file_name = 'emp.csv'
     resp = s3obj.get_object(Bucket = bucket_name, Key = file_name)
     data = resp['Body'].read().decode('utf-8')
+    print(data)
     employees=data.split('\n')
     print(employees)
     
