@@ -3,6 +3,7 @@ s3obj = boto3.client('s3')
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('vamsi_emp')
 
+# defined lambda handler here
 def lambda_handler(event,context):
     bucket_name = 'vamsource'
     file_name = 'emp.csv'
@@ -12,6 +13,7 @@ def lambda_handler(event,context):
     employees=data.split('\n')
     print(employees)
     
+    # for loop started here
     for emp in employees:
         emp_id,emp_name,emp_prof = emp.split(',')
         #adding print function
